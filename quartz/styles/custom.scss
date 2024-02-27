@@ -1,3 +1,226 @@
 @use "./base.scss";
 
 // put your custom CSS here!
+//body {
+//  height: 200px;
+//  width: 100%;
+//  background-image:
+//          linear-gradient(to right, rgb(203 213 225) 1px, transparent 1px),
+//          linear-gradient(to bottom, rgb(203 213 225) 1px, transparent 1px);
+//  background-size: 20px 20px;
+//  background-position: center center;
+//}
+
+@-webkit-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling-reverse {
+  100% {
+    background-position: 50px 50px;
+  }
+}
+@-webkit-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-moz-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@-o-keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+@keyframes bg-scrolling {
+  0% {
+    background-position: 50px 50px;
+  }
+}
+/* Main styles */
+body {
+  color: #999;
+  /* img size is 50x50 */
+  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAIAAACRXR/mAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAABnSURBVHja7M5RDYAwDEXRDgmvEocnlrQS2SwUFST9uEfBGWs9c97nbGtDcquqiKhOImLs/UpuzVzWEi1atGjRokWLFi1atGjRokWLFi1atGjRokWLFi1af7Ukz8xWp8z8AAAA//8DAJ4LoEAAlL1nAAAAAElFTkSuQmCC") repeat 0 0;
+  -webkit-animation: bg-scrolling-reverse 6s infinite;
+  /* Safari 4+ */
+  -moz-animation: bg-scrolling-reverse 6s infinite;
+  /* Fx 5+ */
+  -o-animation: bg-scrolling-reverse 6s infinite;
+  /* Opera 12+ */
+  animation: bg-scrolling-reverse 6s infinite;
+  /* IE 10+ */
+  -webkit-animation-timing-function: linear;
+  -moz-animation-timing-function: linear;
+  -o-animation-timing-function: linear;
+  animation-timing-function: linear;
+}
+
+
+//body::before {
+//  content: "INFINITY";
+//  font-size: 8rem;
+//  font-weight: 100;
+//  font-style: normal;
+//}
+
+//@use "./base.scss";
+
+// put your custom CSS here!
+//body {
+//  background-image: url("/static/bg.png") !important;
+//  margin: 0;
+//}
+
+@font-face {
+  font-family: "Tiempos";
+  src: url("/static/tiempos-light.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* HEADER AT TOP OF WEBSITE */
+.marquee {
+  background-color: black;
+  overflow: hidden;
+  width: 100%;
+  font-family: monospace;
+  white-space: nowrap;
+  height: 40px;
+}
+
+.marquee p {
+  color: white;
+  font-weight: 700;
+  animation: loopText 15s infinite linear;
+  line-height: unset;
+}
+
+@keyframes loopText {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-25%);
+  }
+}
+
+/* HEADER AT TOP OF WEBSITE */
+.content-container {
+  width: 70%;
+  margin: 0 auto;
+  padding-bottom: 128px;
+}
+
+.article-header {
+  border-radius: 5px;
+  margin-top: 50px;
+  padding: 25px;
+  border: 1px solid #5687d1;
+  background: #6096e6;
+
+  h1 {
+    color: #f9f5e9;
+    padding: 0px;
+    margin: 0;
+  }
+
+  p {
+    color: #f9f5e9;
+    padding: 0;
+    padding-top: 5px;
+    margin: 0;
+  }
+}
+
+body[data-slug="getting-started"] .article-header {
+  border: #949c61;
+  background: #9ca665;
+}
+
+body[data-slug="growing-people"] .article-header {
+  border: #ad7018;
+  background: #bd7c18;
+}
+
+body[data-slug="superboosting-ideas"] .article-header {
+  border: #9f7389;
+  background: #ac7d94;
+}
+
+body[data-slug="maintenance"] .article-header {
+  border: #d37662;
+  background: #eb846d;
+}
+
+.navigation-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+body[data-slug="basics"] .navigation-container {
+  display: display;
+  justify-content: flex-end;
+}
+
+body[data-slug="maintenance"] .navigation-container {
+  display: display;
+  justify-content: flex-start;
+}
+
+a.navigation-button {
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid #5687d1;
+  background: #6096e6;
+  width: 17%;
+  text-align: center;
+  transition: all 0.3s;
+  transform: scale(1);
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+
+  p {
+    color: #f9f5e9;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+body[data-slug="getting-started"] a.navigation-button {
+  border: #949c61;
+  background: #9ca665;
+}
+
+body[data-slug="growing-people"] a.navigation-button {
+  border: #ad7018;
+  background: #bd7c18;
+}
+
+body[data-slug="superboosting-ideas"] a.navigation-button {
+  border: #9f7389;
+  background: #ac7d94;
+}
+
+body[data-slug="maintenance"] a.navigation-button {
+  border: #d37662;
+  background: #eb846d;
+}
